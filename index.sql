@@ -5,15 +5,23 @@ CREATE TABLE Customers (
     GRADE REAL
 );
 
-INSERT INTO Customers (CUSTOMER_ID ,NAME,CITY ,GRADE ) VALUES
+INSERT INTO Customers (CUSTOMER_ID, NAME, CITY, GRADE) VALUES
 (1, 'Alice', 'New York', 150),
 (2, 'Bob', 'New York', 80),
 (3, 'Charlie', 'Chicago', 120),
 (4, 'David', 'New York', 200),
 (5, 'Eve', 'Boston', 95);
 
-SELECT * FROM Customers 
-WHERE CITY = 'New York' OR grade > 100;
+SELECT SUM(GRADE) AS total_grade FROM Customers;
 
-SELECT * FROM Customers 
-WHERE CITY = 'New York' AND grade > 100;
+SELECT AVG(GRADE) AS average_grade FROM Customers;
+
+SELECT COUNT(*) AS total_customers FROM Customers;
+
+SELECT CITY, COUNT(*) AS customer_count
+FROM Customers
+GROUP BY CITY;
+
+SELECT MIN(GRADE) AS minimum_grade FROM Customers;
+
+SELECT MAX(GRADE) AS maximum_grade FROM Customers;
